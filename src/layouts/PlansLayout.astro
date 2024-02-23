@@ -1,0 +1,28 @@
+---
+import Layout from "./index.astro";
+import Footer from "~/components/Footer.astro";
+import { Header } from "~/components/react-components/header";
+import { PipeTechLogo } from "~/components/react-components/sofia-resolve-logo";
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+	<div class="w-full h-[117px] animate__animated animate__fadeInDown animate__fast fixed z-20">
+		<Header client:load>
+      <div class="w-full h-[117px] flex justify-between items-center mx-auto xl:px-[100px] px-[14px]">
+        <div class="mr-[4px]">
+          <a href="/">
+            <PipeTechLogo />
+          </a>
+        </div>
+      </div>
+		</Header>
+	</div>
+  <slot />
+  <Footer />
+</Layout>

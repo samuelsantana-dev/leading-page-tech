@@ -1,0 +1,17 @@
+{
+    "name": "Leading Page PipeTech",
+    "short_name": "PipeTech",
+    "description": "Uma Leading Page para PipeTech",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#111F42",
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "/assets/favicon-pipe-tech.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+}

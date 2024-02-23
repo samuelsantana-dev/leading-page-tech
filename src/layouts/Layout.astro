@@ -1,0 +1,24 @@
+---
+import Layout from "./index.astro";
+import Footer from "~/components/Footer.astro";
+import { Header } from "~/components/react-components/header";
+import { LgHeader } from "~/components/react-components/home/header/lg-header";
+import { SmHeader } from "~/components/react-components/home/header/sm-header";
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+	<div class="w-full h-[117px] animate__animated animate__fadeInDown animate__fast fixed z-20">
+		<Header client:load>
+			<LgHeader client:load className="md:flex hidden w-full" />
+			<SmHeader client:load className="md:hidden flex w-full" />
+		</Header>
+	</div>
+  <slot />
+  <Footer />
+</Layout>

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-poppins text-grey-50 bg-dark-green-50;
+  }
+}
+
+.section_content {
+  @apply max-w-[1205px] w-full mx-auto px-[14px];
+}
+
+.bg-plans-gradient {
+  background: linear-gradient(180deg, #E9F4F1 0%, rgba(163, 239, 218, 0.70) 77.56%, rgba(141, 180, 140, 0.00) 100%);
+}
+
+.animate-fill-both {
+  animation-fill-mode: both;
+}
+
+.imagem{
+  height: 12rem;
+  width: 12rem;
+}
+
+.background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-image: url('/assets/images/background.webp');
+}

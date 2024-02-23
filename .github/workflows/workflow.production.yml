@@ -1,0 +1,38 @@
+name: Production enviromnent - Sofia Resolve Landing Page deploy
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy-netlify:
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    name: 'deploy-netlify'
+    runs-on: ubuntu-latest
+    env:
+      PUBLIC_PRICING_STANDARD: ${{ vars.PUBLIC_PRICING_STANDARD }}
+      PUBLIC_PRICING_ESSENTIAL: ${{ vars.PUBLIC_PRICING_ESSENTIAL }}
+      PUBLIC_PRICING_PLUS: ${{ vars.PUBLIC_PRICING_PLUS }}
+      PUBLIC_PRICING_PREMIUM: ${{ vars.PUBLIC_PRICING_PREMIUM }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: CI=false yarn build
+
+      - name: Deploy
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=dist --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN

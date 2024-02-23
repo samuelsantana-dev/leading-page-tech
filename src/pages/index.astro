@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { Benefits } from "../components/react-components/home/sections/benefits-section";
+import { ResultsSection } from "../components/react-components/home/sections/results-section";
+import { FeaturesSection } from "../components/react-components/home/sections/features-section";
+import { MobileAppSection } from "../components/react-components/sections/mobile-app-section";
+import { links } from "constants/links";
+---
+
+<Layout title="Início">
+  <main class="flex flex-col">
+    <section
+      class="background-image h-full"
+      >
+      <div class="section_content flex min-[1178px]:justify-between text-center min-[1178px]:text-left pb-[42px] min-[1178px]:pb-[52px] md:mt-[209px] mt-[142px] relative">
+        <div class="bg-[#E3EAFF] p-[24px] rounded-[8px] flex flex-col">
+          <h1
+            class="animate-fade font-poppins text-blue-600 text-sm sm:text-lg"
+          >
+          Nós somos seus parceiros <br /> <span class="font-extrabold text-[2.5rem] md:text-[2.5rem] text-blue-800">
+            em inovação digital</span>
+          </h1>
+          <p
+            class="main_section_description animate-fade max-w-[516px] w-full font-manrope text-sm text-grey-600 mt-[10px]"
+          >
+          Na Pipetech, estamos comprometidos em impulsionar a sua empresa para o próximo nível. Somos uma equipe apaixonada de especialistas em software, focados em fornecer soluções  que capacitam empreendedores digitais a prosperar no cenário tecnológico em constante evolução.
+          </p>
+        </div>
+      </div>
+      <div class="section_content mb-7  justify-center"> 
+         <a
+          href="https://wa.me/5561998066454"
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="animate-fade text-center bg-blue-800  text-[1rem] min-[1178px]:text-[1.25rem]  font-poppins mt-[37px] p-[10px] min-[1178px]:rounded-lg rounded-sm font-extrabold  transition-colors min-[1178px]:max-w-[314px] max-w-full w-full py-[16px] px-[30px] lg:py-[20px]"
+          >
+          Entrar em Contato
+        </a>
+      </div>
+    </section>
+
+		<section class="bg-grey-50">
+			<div class="section_content text-[1,25rem] font-medium py-[67px]">
+				<Benefits client:load />
+			</div>
+		</section>
+
+		<section class="bg-blue-500">
+			<div class="section_content py-[80px]">
+				<ResultsSection client:load />
+			</div>
+		</section>
+    
+    <section class="bg-grey-50">
+      <div class="section_content py-[62px]">
+        <FeaturesSection client:load />
+      </div>
+    </section>
+    <section class="bg-white" id="#sofiaResolve"> 
+      <div class="section_content">
+        <MobileAppSection client:load />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .main_section_description.animate__animated.animate__fadeIn {
+    animation-delay: 0.2s;
+  }
+
+  .main_section_button.animate__animated.animate__fadeIn {
+    animation-delay: 0.4s;
+  }
+</style>
+
+<script is:inline src="/scripts/chatbot.js"></script>
